@@ -1,0 +1,7 @@
+window: 20
+improving_slope: -0.01
+plateau_slope_abs: 0.001
+low_variance: 0.01
+unstable_convergence_threshold: 0.3
+stable_convergence_threshold: 0.6
+

@@ -1143,24 +1143,28 @@ class AdaptiveAGMFramework:
 2. Add `TrainingPhaseAdaptiveAGM` for phase-based strategy selection
 3. Create `AGMHyperparameterAdapter` for basic parameter adaptation
 4. Integration testing with existing HMPO framework
+  =====  done  =====
 
 ### Phase 2: Multi-Scale and Advanced Features 
 1. Implement `MultiScaleAGMFramework` for hierarchical adaptation
 2. Add `AGMCurriculumController` for adaptive curriculum learning
 3. Create `AGMConvergenceDetector` for intelligent early stopping
 4. Performance optimization and stability testing
+  =====  done  =====
 
 ### Phase 3: Advanced Research Features 
 1. Implement `LearnableAGMOptimizer` for trainable AGM parameters
 2. Add `AGMUncertaintyEstimator` for uncertainty quantification
 3. Create `PopulationAGMTrainer` for population-based optimization
 4. Comprehensive evaluation and benchmarking
+  =====  done  =====
 
 ### Phase 4: Integration and Validation 
 1. Integrate all modules into `AdaptiveAGMFramework`
 2. Large-scale validation on real tasks
 3. Documentation and examples
 4. Open-source release preparation
+  =====  done  =====
 
 ## 🏁 Expected Impact
 
@@ -1180,3 +1184,13 @@ The mathematical foundation of AGM provides theoretical sanity while the adaptiv
 *This document provides the complete framework for leveraging AGM's adaptive properties in policy optimization. Each component can be implemented incrementally while maintaining compatibility with the existing HMPO (other repo) codebase.* 
 
 The HMPO codebase will be compimentary however they will be clearly marked as different for sanity as both may get rather large and I want to avoid confusion, any cross references will be resolved by having the refs in each repo so no need to fly back and forth.
+
+## Telemetry schema and ingestion (implemented)
+
+- Controllers consume a repo-agnostic telemetry dict validated by `agmlib.agm.telemetry.TelemetryPayload`:
+  - `step: int`
+  - `agm.{arithmetic_history,harmonic_history}: list[float]`
+  - `rl.td.{mean,var}: float`, `rl.q.rel_change: float`, `rl.reward.{train_mean,eval_mean}: float`
+  - `muon_clip.{active,clip_rate}`
+- A helper `build_telemetry_from_hmpo_record(record)` maps HMPO JSONL/CSV log entries into this schema.
+- The ingestion runner `scripts/hmpo_ingest_runner.py` streams HMPO logs, runs controllers, emits events, and writes controller decisions to `logs/controllers.jsonl`.

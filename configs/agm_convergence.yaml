@@ -1,0 +1,6 @@
+fast_threshold: 0.7
+slow_threshold: 0.2
+unstable_variance_threshold: 0.1
+regime_window: 10
+history_cap: 1000
+

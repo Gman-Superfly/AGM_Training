@@ -1,0 +1,17 @@
+bounds:
+  lr_min: 0.00001
+  lr_max: 0.005
+  eps_min: 0.01
+  eps_max: 0.5
+  batch_min: 64
+  batch_max: 2048
+  agm_min: 1
+  agm_max: 20
+smoothing_factor: 0.9
+fast_conv_threshold: 0.7
+slow_conv_threshold: 0.3
+stability_high: 0.8
+stability_low: 0.3
+spread_high: 0.3
+spread_low: 0.05
+

@@ -1,0 +1,75 @@
+__pycache__/
+.pytest_cache/
+.venv/
+env/
+build/
+dist/
+*.egg-info/
+logs/
+*.log
+/.idea/
+/.vscode/
+.DS_Store
+
+# OS/editor
+Thumbs.db
+*.code-workspace
+.python-version
+
+# Python tooling/caches
+.mypy_cache/
+.ruff_cache/
+.pylint.d/
+.ipynb_checkpoints/
+.cache/
+
+# Coverage
+.coverage
+coverage.xml
+coverage/
+
+# Experiment/third-party
+wandb/
+
+# Env files (secrets)
+.env
+*.env
+
+# Key material 
+*.pem
+*.key
+*.p12
+*.jks
+
+# Local logs/datasets (for now)
+hmpo/*.jsonl
+hmpo/*.csv
+data/
+datasets/
+
+# Model/checkpoint artifacts
+models/
+checkpoints/
+outputs/
+artifacts/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npz
+*.npy
+*.pkl
+*.joblib
+
+# Local DB/cache artifacts
+*.sqlite
+*.db
+
+# Misc platform/editor
+Desktop.ini
+*.iml
+
+# Profiling outputs
+*.prof
+*.pstats
+*.cprofile

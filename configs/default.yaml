@@ -1,0 +1,53 @@
+replay:
+  batch_size: 256
+  prioritized_replay: true
+  alpha: 0.6
+  beta0: 0.4
+
+kernel_smoothing:
+  enabled: true
+  k: 16
+  sigma_min: 1.0e-3
+  sigma_max: 1.0
+  alpha_step_init: 0.15
+  alpha_step_schedule: cosine
+  alpha_step_decay_steps: 100000
+  dim_exponent: 0.5
+  trust_region_tau: 0.1
+  latent_dim: 64
+  gate_by_td_variance: true
+  td_var_min: 0.0
+  scale_preservation: false
+  disagreement_min: 0.0
+  noise_std: 0.0
+  adapt_enabled: true
+  adapt_rate: 0.05
+  alpha_step_min: 0.01
+  alpha_step_max: 0.5
+  tau_min: 0.01
+  tau_max: 1.0
+  k_min: 4
+  k_max: 64
+
+early_stopping:
+  eval_interval: 5000
+  patience: 10
+  hysteresis_pct: 0.03
+  td_ema_beta: 0.9
+  plateau_threshold: 0.5
+  use_cost: true
+  td_weight: 0.3
+  stability_weight: 0.3
+  plateau_weight: 0.4
+
+distributed:
+  actors_per_gpu: 4
+  learners: 1
+  param_sync_interval: 1000
+  replay_shards: 4
+
+training:
+  learning_rate: 0.001
+  lr_min: 0.00001
+  lr_max: 0.005
+  lr_adapt_rate: 0.05
