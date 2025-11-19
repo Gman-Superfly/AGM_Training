@@ -1,6 +1,7 @@
 ## AGM Training Scaffold
 
-Typed, entity-first scaffold for adaptive off-policy RL training with kernel smoothing and early stopping. Uses `uv` for fast, reliable Python envs.
+Typed, entity-first scaffold for adaptive off-policy RL training with kernel smoothing and early stopping. 
+Uses `uv` Python envs.
 
 ... entity flow inspired by Furlat Abstractions ...
 
@@ -106,30 +107,25 @@ See also: `TESTING_MANUAL.md` for a detailed rationale of modules and tests.
 - Changes by phase/version: `CHANGELOG.md`
 - Note: GitHub Actions workflows were removed to keep the repo CI‑agnostic; see `docs/CI.md` to enable CI when needed.
 
-### On‑policy vs Off‑policy RL (some random notes for When to choose)
-- Neither is universally better; pick based on constraints.
-- Use on‑policy (e.g., PPO/TRPO/A2C) when:
+### On‑policy vs Off‑policy RL (some random notes for when to choose)
+- Pick based on constraints.
+- Use on‑policy (e.g., PPO/TRPO/A2C etc... ) when:
   - Simulator samples are cheap and you want simple, stable updates
   - Rapidly changing policies/data; avoiding replay bias matters
   - Lower sample efficiency is acceptable
-- Use off‑policy (e.g., DQN/TD3/SAC) when:
+- Use off‑policy (e.g., DQN/TD3/SAC etc... ) when:
   - Data is expensive; you need high sample efficiency via replay/offline logs
   - Multi‑actor or offline scenarios fit your workflow
   - You can manage stability (target nets, clipping, importance weighting)
-- This repo targets off‑policy for sample efficiency; AGM kernel smoothing and early stopping provide stability guardrails.
+- This repo targets off‑policy for sample efficiency; AGM kernel smoothing and early stopping provide stability guardrails, but will also be made into fun tools to uv install with datamutant
 
 We know there are new techniques and we will get there slowly as we build with what we know first,  then move to newer stuff when we are sure we fully understand them deeply, this is function first eng repo for us.
 
-### Project Phases & Sources
+### Project Phases & Sources ... so far ...
 - Phase 1 — Scaffold, smoothing, early-stop (Complete; v0.1.0)
 - Phase 2 — HMPO integration & ingestion (Complete)
 - Phase 3 — Advanced controllers & tooling (Complete; v0.2.0)
 - Phase 4 — Live rollout, benchmarks, CI & release (Complete)
-
-See:
-- Implementation roadmap with phases in `AGM_TRAINING.md` (Implementation Roadmap)
-- TODO roadmap with phases in `AGM_ADAPTIVE_PROPERTIES.md` (Implementation TODO Roadmap)
-- Execution order in `ACTION_PLAN.md` (Timeline and Order of Execution)
-- Detailed changes per phase in `CHANGELOG.md`
+- Phase 5 — Chill for a bit, think and fix components in ref'd other repos.
 
 
